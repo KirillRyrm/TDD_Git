@@ -44,5 +44,18 @@ namespace TestProject2
             Expression franc = new Franc(10, "CHF");
             Assert.IsFalse(money.Equals(bank.Reduce(franc, "USD")));
         }
+
+        [Test]
+        public void testSimpleAddition()
+        {
+            Money five = Money.dollar(5);
+            Expression result = five.plus(five);
+            Bank bank = new Bank();
+            bank.SetRate("USD", "USD", 1);
+            bank.SetRate("USD", "CHF", 2);
+
+            Money reduced = bank.Reduce(result, "USD");
+            Assert.AreEqual(Money.dollar(10), reduced);
+        }
     }
 }
