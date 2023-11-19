@@ -5,9 +5,11 @@ namespace TestProject2
     {
       
         [Test]
-        public void Test1()
+        public void TestMultiplication()
         {
-            Assert.Pass();
+            Money five = Money.dollar(5);
+            Assert.AreEqual(Money.dollar(10), five.Times(2));
+            Assert.AreEqual(Money.dollar(15), five.Times(3));
         }
     }
 }

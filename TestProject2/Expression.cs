@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TestProject2
 {
-    internal class Expression
+    public interface Expression
     {
+        Money Reduce(Bank bank, string to);
     }
 }
