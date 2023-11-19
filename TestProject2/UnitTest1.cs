@@ -87,5 +87,16 @@ namespace TestProject2
         {
             Assert.AreEqual(1, new Bank().Rate("USD", "USD"));
         }
+
+        [Test]
+        public void testMixedAddition()
+        {
+            Money fiveBucks = Money.dollar(5);
+            Money tenFrancs = Money.franc(10);
+            Bank bank = new Bank();
+            bank.AddRate("CHF", "USD", 2);
+            Money result = bank.Reduce(tenFrancs.plus(fiveBucks), "CHF");
+            Assert.AreEqual(Money.franc(15), result);
+        }
     }
 }
