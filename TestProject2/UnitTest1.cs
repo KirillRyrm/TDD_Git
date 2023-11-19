@@ -81,5 +81,11 @@ namespace TestProject2
         {
             Assert.AreEqual(new Object[] { "abc" }, new Object[] { "abc" });
         }
+
+        [Test]
+        public void testIdentityRate()
+        {
+            Assert.AreEqual(1, new Bank().Rate("USD", "USD"));
+        }
     }
 }
