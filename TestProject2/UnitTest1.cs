@@ -75,5 +75,11 @@ namespace TestProject2
             Money result = bank.Reduce(Money.franc(2), "USD");
             Assert.AreEqual(Money.dollar(1), result);
         }
+
+        [Test]
+        public void testArrayEquals()
+        {
+            Assert.AreEqual(new Object[] { "abc" }, new Object[] { "abc" });
+        }
     }
 }
