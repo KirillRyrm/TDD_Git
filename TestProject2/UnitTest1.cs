@@ -57,5 +57,14 @@ namespace TestProject2
             Money reduced = bank.Reduce(result, "USD");
             Assert.AreEqual(Money.dollar(10), reduced);
         }
+
+        [Test]
+        public void testReduceSum()
+        {
+            Expression sum = new Sum(Money.dollar(3), Money.dollar(4));
+            Bank bank = new Bank();
+            Money result = bank.Reduce(sum, "USD");
+            Assert.AreEqual(Money.dollar(7), result);
+        }
     }
 }
