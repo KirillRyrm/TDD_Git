@@ -34,5 +34,15 @@ namespace TestProject2
             Assert.False(Money.franc(5).Equals(Money.dollar(5)));
 
         }
+
+        [Test]
+        public void testDifferentClassEquality()
+        {
+            Bank bank = new Bank();
+            bank.AddRate("CHF", "USD", 2);
+            Money money = new Money(10, "CHF");
+            Expression franc = new Franc(10, "CHF");
+            Assert.IsFalse(money.Equals(bank.Reduce(franc, "USD")));
+        }
     }
 }
