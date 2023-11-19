@@ -66,5 +66,14 @@ namespace TestProject2
             Money result = bank.Reduce(sum, "USD");
             Assert.AreEqual(Money.dollar(7), result);
         }
+
+        [Test]
+        public void testReduceMoneyDifferentCurrency()
+        {
+            Bank bank = new Bank();
+            bank.AddRate("CHF", "USD", 2);
+            Money result = bank.Reduce(Money.franc(2), "USD");
+            Assert.AreEqual(Money.dollar(1), result);
+        }
     }
 }
